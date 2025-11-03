@@ -1,0 +1,347 @@
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Background flou */
+.app-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/background.png') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(0px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* En-tête et logo */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: -120px;
+  margin-bottom: -340px;
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+}
+
+.app-logo {
+  width: 60vw;
+  max-width: 450px;
+  min-width: 220px;
+  height: auto;
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 600px;
+  user-select: none;
+  outline: none;
+}
+
+/* Logo FMM fixe */
+.logo-fixed-top-right {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 110px;
+  height: auto;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Main et menu */
+.main {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 00px;
+}
+
+.menu-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Boutons stylés */
+.button {
+  display: inline-block;
+  text-decoration: none;
+  flex: 1 1 250px;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(to bottom, #353637, #37474F);
+  color: white;
+  padding: 50px 0;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease-out;
+  pointer-events: none;
+}
+
+.button:hover::before {
+  left: 125%;
+  animation: shine 0.7s ease-out;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #7fa9c9, #5e8abf);
+  color: #f9f9f9;
+  box-shadow: 0 0 6px rgba(58, 105, 162, 0.4);
+}
+
+.button:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.button.disabled,
+.button:disabled {
+  background: linear-gradient(to bottom, #555, #444);
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.btn-large {
+  min-width: 300px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* Titre page Fabric */
+.fabric-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #a3c3e8;
+  margin-bottom: 40px;
+  margin-top: -25px;
+  text-align: center;
+  margin-left: -35px;
+  width: 100%;
+}
+
+.page-fabric {
+  padding-top: 400px;
+}
+
+/* Bouton menu fixe */
+.icon-menu-link {
+  --icon-scale: 1.5;
+  --icon-bottom: 60px;
+  --icon-left: 60px;
+
+  position: fixed;
+  bottom: var(--icon-bottom);
+  left: var(--icon-left);
+  cursor: pointer;
+  z-index: 9999;
+  width: calc(40px * var(--icon-scale));
+  height: auto;
+  user-select: none;
+}
+
+.icon-menu {
+  width: 90%;
+  height: auto;
+  filter: drop-shadow(0 0 0px #7fa9c9);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  display: block;
+  opacity: 0.8;
+}
+
+.icon-menu-link:hover .icon-menu {
+  filter: drop-shadow(0 0 5px #7fa9c9);
+  transform: scale(calc(var(--icon-scale) * 0.35));
+}
+
+/* Position bouton menu sur autres pages */
+.fixed-pos {
+  position: fixed !important;
+  top: 60px !important;
+  left: 50px !important;
+  bottom: auto !important;
+  --icon-scale: 3.2;
+  width: calc(40px * var(--icon-scale));
+  z-index: 1000;
+}
+
+/* Bouton switch retour */
+.icon-switch-back-link {
+  --icon-scale: 3.2;
+  --icon-top: 80px;
+  --icon-left: 65px;
+  position: fixed !important;
+  top: var(--icon-top) !important;
+  left: var(--icon-left) !important;
+  width: calc(40px * var(--icon-scale));
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+}
+
+.icon-switch-back-link img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 0px #7fa9c9);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.icon-switch-back-link:hover img {
+  filter: drop-shadow(0 0 5px #7fa9c9);
+  transform: scale(calc(var(--icon-scale) * 0.35));
+}
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+  .app-container {
+    width: 95vw;
+    padding: 1rem 0.5rem;
+    gap: 20px;
+  }
+
+  .app-header {
+    margin-top: -100px;
+    margin-bottom: -260px;
+  }
+
+  .app-logo {
+    width: 75vw;
+    max-height: 320px;
+  }
+
+  .main {
+    padding-bottom: 0px;
+  }
+
+  .button-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .button {
+    padding: 40px 0;
+    font-size: 14px;
+  }
+
+  .menu-nav {
+    gap: 20px;
+  }
+
+  .icon-menu-link,
+  .icon-switch-back-link {
+    --icon-scale: 2.2;
+    bottom: 30px;
+    left: 30px;
+  }
+
+  .fixed-pos {
+    top: 30px !important;
+    left: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-logo {
+    width: 85vw;
+    max-height: 240px;
+  }
+
+  .button {
+    flex-basis: 100%;
+    max-width: 100%;
+    padding: 30px 0;
+    font-size: 13px;
+  }
+
+  .menu-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

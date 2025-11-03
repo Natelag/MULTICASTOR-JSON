@@ -1,0 +1,134 @@
+:root {
+  --convert-base-w: 1700px;   /* largeur de référence (coords absolues) */
+  --convert-base-h: 2155px;   /* hauteur de référence (adapter à l'image) */
+  --convert-scale: 0.425;       /* facteur d'échelle visuelle */
+  --convert-offset-x: -10px;    /* décalage horizontal visuel (après scale) */
+}
+
+.convert-page {
+  position: relative;
+  padding: 0; /* list container handles spacing */
+}
+
+/* Card sizing/spacing aligned with Bridge cards */
+.convert-card {
+  width: 38.1%;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 8px;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  margin: 0px 0 65px 0; /* add spacing between Convert cards */
+  margin-left: 595px
+}
+
+.convert-visual {
+  position: relative;
+  /* footprint calculée = base * scale pour supprimer l'espace blanc inutile */
+  width: calc(var(--convert-base-w) * var(--convert-scale));
+  height: calc(var(--convert-base-h) * var(--convert-scale));
+}
+
+.convert-visual-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--convert-base-w);
+  height: var(--convert-base-h);
+  transform: scale(var(--convert-scale)) translateX(var(--convert-offset-x));
+  transform-origin: top left;
+}
+
+.convert-template {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.convert-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.textbox-convert {
+  position: absolute;
+  font-weight: 600;
+  font-size: 28px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 0px solid #000;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(26, 23, 218);
+  width: 640px; height: 56px;
+}
+
+/* Example positions; adjust to your Convert template */
+.box-HOSTNAME-convert { top: 90px; left: 990px; font-size: 58px; color: #313131;   font-weight: 700;}
+.box-FONCTION-convert { top: 25px; left: 560px; font-size: 42px; color: #000; }
+.box-BAIE-convert { top: 95px; left: 560px; font-size: 42px; color: #000; }
+.box-FIRMWARE-convert { top: 165px; left: 560px; font-size: 42px; color: #000; }
+.box-CAPACITE-convert { top: 270px; left: 560px; font-size: 42px; color: #000; }
+.box-UTILISE-convert { top: 340px; left: 560px; font-size: 42px; color: #000; }
+.box-DISPO-convert { top: 408px; left: 560px; font-size: 42px; color: #000; }
+
+/* IN1..IN24 placeholder; adjust to your actual image grid */
+.box-IN1-convert { top: 548px; left: 315px; }
+.box-IN2-convert { top: 616px; left: 315px; }
+.box-IN3-convert { top: 682px; left: 315px; }
+.box-IN4-convert { top: 748px; left: 315px; }
+.box-IN5-convert { top: 817px; left: 315px; }
+.box-IN6-convert { top: 883px; left: 315px; }
+.box-IN7-convert { top: 949px; left: 315px; }
+.box-IN8-convert { top: 1018px; left: 315px; }
+.box-IN9-convert { top: 1084px; left: 315px; }
+.box-IN10-convert { top: 1152px; left: 315px; }
+.box-IN11-convert { top: 1220px; left: 315px; }
+.box-IN12-convert { top: 1285px; left: 315px; }
+.box-IN13-convert { top: 1352px; left: 315px; }
+.box-IN14-convert { top: 1420px; left: 315px; }
+.box-IN15-convert { top: 1485px; left: 315px; }
+.box-IN16-convert { top: 1553px; left: 315px; }
+.box-IN17-convert { top: 1620px; left: 315px; }
+.box-IN18-convert { top: 1688px; left: 315px; }
+.box-IN19-convert { top: 1753px; left: 315px; }
+.box-IN20-convert { top: 1822px; left: 315px; }
+.box-IN21-convert { top: 1888px; left: 315px; }
+.box-IN22-convert { top: 1955px; left: 315px; }
+.box-IN23-convert { top: 2022px; left: 315px; }
+.box-IN24-convert { top: 2090px; left: 315px; }
+
+.box-OUT1-convert { top: 548px; left: 1020px; }
+.box-OUT2-convert { top: 616px; left: 1020px; }
+.box-OUT3-convert { top: 682px; left: 1020px; }
+.box-OUT4-convert { top: 748px; left: 1020px; }
+.box-OUT5-convert { top: 817px; left: 1020px; }
+.box-OUT6-convert { top: 883px; left: 1020px; }
+.box-OUT7-convert { top: 949px; left: 1020px; }
+.box-OUT8-convert { top: 1018px; left: 1020px; }
+.box-OUT9-convert { top: 1084px; left: 1020px; }
+.box-OUT10-convert { top: 1152px; left: 1020px; }
+.box-OUT11-convert { top: 1220px; left: 1020px; }
+.box-OUT12-convert { top: 1285px; left: 1020px; }
+.box-OUT13-convert { top: 1352px; left: 1020px; }
+.box-OUT14-convert { top: 1420px; left: 1020px; }
+.box-OUT15-convert { top: 1485px; left: 1020px; }
+.box-OUT16-convert { top: 1553px; left: 1020px; }
+.box-OUT17-convert { top: 1620px; left: 1020px; }
+.box-OUT18-convert { top: 1688px; left: 1020px; }
+.box-OUT19-convert { top: 1753px; left: 1020px; }
+.box-OUT20-convert { top: 1822px; left: 1020px; }
+.box-OUT21-convert { top: 1888px; left: 1020px; }
+.box-OUT22-convert { top: 1955px; left: 1020px; }
+.box-OUT23-convert { top: 2022px; left: 1020px; }
+.box-OUT24-convert { top: 2090px; left: 1020px; }
+
+

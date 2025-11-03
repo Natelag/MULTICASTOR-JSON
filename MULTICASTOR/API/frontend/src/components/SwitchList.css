@@ -1,0 +1,76 @@
+.main.page {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  box-sizing: border-box;
+  margin: 0 20px;
+  height: 100vh;
+  overflow: hidden; /* on gère le scroll dans l'enfant */
+}
+
+/* Titre fixe */
+.switch-list-title {
+  position: fixed;
+  top: 190px;
+  left: 45px;
+  z-index: 10;
+  color: #a3c3e8;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+  user-select: none;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.switch-list-title h2 {
+  margin: 0;
+}
+
+.switch-count {
+  position: fixed;
+  top: 193px;
+  left: 1820px;
+  z-index: 10;
+  color: #a3c3e8;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+  user-select: none;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Liste des switches : espacement dynamique géré par le gap */
+.switch-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;                     /* espacement entre switches */
+  margin-top: 410px;            /* espace sous le titre fixe */
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1900px;
+
+  flex-grow: 1;                 /* prend tout l'espace vertical restant */
+  overflow-y: auto;            /* scroll vertical ici */
+}
+
+/* Chaque bloc de switch */
+.switch-list-item {
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0;
+}

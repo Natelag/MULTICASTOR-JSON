@@ -1,0 +1,93 @@
+/* Conteneur principal de la page */
+.main.page {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden; /* scroll géré dans le conteneur scroll */
+}
+
+/* Titre fixe */
+.gateway-list-title {
+  position: fixed;
+  top: 190px;
+  left: 45px;
+  z-index: 10;
+  color: #a3c3e8;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+  user-select: none;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.gateway-list-title h2 {
+  margin: 0;
+}
+
+/* Compteur fixe */
+.gateway-count {
+  position: fixed;
+  top: 193px;
+  left: 1820px; /* ajuster selon écran */
+  z-index: 10;
+  color: #a3c3e8;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+  user-select: none;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Conteneur scrollable des cartes */
+.gateway-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  position: absolute;
+  top: 220px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: stretch; /* <-- étirer les cartes sur toute la largeur */
+}
+
+/* Chaque carte */
+.gateway-card {
+  width: 90%;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 8px; /* <-- réduire le padding vertical */
+  padding-top: 0;     /* supprime l’espace au-dessus */
+  padding-bottom: 0;  /* supprime l’espace en dessous */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  margin: 0;
+}
+
+.gateway-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  /* flex-grow: 1;  <-- supprimer */
+}
+.gateway-card:first-child {
+  padding-top: 0;
+}

@@ -1,0 +1,237 @@
+/* ================= Conteneur principal ================= */
+/* responsive variables removed */
+.editable-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Conteneur de chaque carte */
+.gateway-card-editable {
+  position: relative;
+  width: 1200px; /* largeur réelle de ton image */
+  height: auto;
+}
+
+/* Image de fond */
+.gateway-template-editable {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Conteneur textbox */
+.gateway-content-editable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* Textbox génériques */
+.textbox-editable {
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 0px solid #000;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(26, 23, 218);
+  width: 380px; height: 28px;
+  
+}
+
+/* Par défaut, neutraliser les interactions sur tout (évite les overlaps prendre le clic) */
+.textbox-editable { pointer-events: none; }
+
+/* Les zones cliquables reçoivent le clic et sont au-dessus */
+.textbox-editable.is-clickable {
+  pointer-events: auto;
+  z-index: 2;
+  user-select: text;
+}
+
+/* Gras uniquement pour les groupes demandés */
+[class^="box-IN"][class$="-editable"].textbox-editable,
+[class^="box-OUT"][class$="-editable"].textbox-editable,
+[class^="box-IO"][class*="IN"][class$="-editable"].textbox-editable,
+[class^="box-IO"][class*="OUT"][class$="-editable"].textbox-editable,
+[class^="box-IO"][class*="CONV"][class$="-editable"].textbox-editable {
+  font-weight: 700;
+}
+
+/* responsive scaling removed to restore original positions */
+
+/* ================= Infos principales ================= */
+.box-HOSTNAME-editable { top:50px; left: 700px; font-size: 38px; color: #313131;   font-weight: 700; }
+.box-FONCTION-editable { top: 15px; left: 270px; font-size: 24px; color: #000;  font-weight: 700; }
+.box-BAIE-editable { top: 52px; left: 270px; font-size: 24px; color: #000;  font-weight: 700; }
+.box-FIRMWARE-editable { top: 88px; left: 270px; font-size: 22px; color: #000;  font-weight: 700; }
+.box-DISPO-editable { top: 125px; left: 270px; font-size: 22px; color: #000;   font-weight: 700;}
+
+/* ================= IN1 à IN8 ================= */
+.box-IN1-editable { top: 229px; left:  325px; font-size: 18px; }
+.box-IN2-editable { top: 256px; left:  325px; font-size: 18px; }
+.box-IN3-editable { top: 284px; left:  325px; font-size: 18px; }
+.box-IN4-editable { top: 312px; left:  325px; font-size: 18px; }
+.box-IN5-editable { top: 340px; left:  325px; font-size: 18px; }
+.box-IN6-editable { top: 368px; left:  325px; font-size: 18px; }
+.box-IN7-editable { top: 397px; left:  325px; font-size: 18px; }
+.box-IN8-editable { top: 424px; left:  325px; font-size: 18px; }
+
+/* ================= OUT1 à OUT8 ================= */
+.box-OUT1-editable { top: 453px; left: 800px; font-size: 18px; }
+.box-OUT2-editable { top: 480px; left: 800px; font-size: 18px; }
+.box-OUT3-editable { top: 508px; left: 800px; font-size: 18px; }
+.box-OUT4-editable { top: 536px; left: 800px; font-size: 18px; }
+.box-OUT5-editable { top: 564px; left: 800px; font-size: 18px; }
+.box-OUT6-editable { top: 592px; left: 800px; font-size: 18px; }
+.box-OUT7-editable { top: 620px; left: 800px; font-size: 18px; }
+.box-OUT8-editable { top: 648px; left: 800px; font-size: 18px; }
+
+/* ================= IO9IN à IO32IN ================= */
+.box-IO9IN-editable { top: 679px; left: 325px; font-size: 18px; }
+.box-IO10IN-editable { top: 706px; left:  325px; font-size: 18px; }
+.box-IO11IN-editable { top: 734px; left:  325px; font-size: 18px; }
+.box-IO12IN-editable { top: 762px; left:  325px; font-size: 18px; }
+.box-IO13IN-editable { top: 790px; left:  325px; font-size: 18px; }
+.box-IO14IN-editable { top: 818px; left:  325px; font-size: 18px; }
+.box-IO15IN-editable { top: 846px; left:  325px; font-size: 18px; }
+.box-IO16IN-editable { top: 874px; left:  325px; font-size: 18px; }
+.box-IO17IN-editable { top: 903px; left:  325px; font-size: 18px; }
+.box-IO18IN-editable { top: 931px; left:  325px; font-size: 18px; }
+.box-IO19IN-editable { top: 959px; left:  325px; font-size: 18px; }
+.box-IO20IN-editable { top: 987px; left:  325px; font-size: 18px; }
+.box-IO21IN-editable { top: 1015px; left:  325px; font-size: 18px; }
+.box-IO22IN-editable { top: 1043px; left:  325px; font-size: 18px; }
+.box-IO23IN-editable { top: 1071px; left:  325px; font-size: 18px; }
+.box-IO24IN-editable { top: 1099px; left:  325px; font-size: 18px; }
+.box-IO25IN-editable { top: 1127px; left:  325px; font-size: 18px; }
+.box-IO26IN-editable { top: 1155px; left:  325px; font-size: 18px; }
+.box-IO27IN-editable { top: 1183px; left:  325px; font-size: 18px; }
+.box-IO28IN-editable { top: 1211px; left:  325px; font-size: 18px; }
+.box-IO29IN-editable { top: 1239px; left:  325px; font-size: 18px; }
+.box-IO30IN-editable { top: 1267px; left:  325px; font-size: 18px; }
+.box-IO31IN-editable { top: 1295px; left:  325px; font-size: 18px; }
+.box-IO32IN-editable { top: 1323px; left:  325px; font-size: 18px; }
+
+/* ================= IO9OUT à IO32OUT ================= */
+.box-IO9OUT-editable { top: 679px; left: 800px; font-size: 18px; }
+.box-IO10OUT-editable { top: 706px; left: 800px; font-size: 18px; }
+.box-IO11OUT-editable { top: 734px; left: 800px; font-size: 18px; }
+.box-IO12OUT-editable { top: 762px; left: 800px; font-size: 18px; }
+.box-IO13OUT-editable { top: 790px; left: 800px; font-size: 18px; }
+.box-IO14OUT-editable { top: 818px; left: 800px; font-size: 18px; }
+.box-IO15OUT-editable { top: 846px; left: 800px; font-size: 18px; }
+.box-IO16OUT-editable { top: 874px; left: 800px; font-size: 18px; }
+.box-IO17OUT-editable { top: 903px; left: 800px; font-size: 18px; }
+.box-IO18OUT-editable { top: 931px; left: 800px; font-size: 18px; }
+.box-IO19OUT-editable { top: 959px; left: 800px; font-size: 18px; }
+.box-IO20OUT-editable { top: 987px; left: 800px; font-size: 18px; }
+.box-IO21OUT-editable { top: 1015px; left: 800px; font-size: 18px; }
+.box-IO22OUT-editable { top: 1043px; left: 800px; font-size: 18px; }
+.box-IO23OUT-editable { top: 1071px; left: 800px; font-size: 18px; }
+.box-IO24OUT-editable { top: 1099px; left: 800px; font-size: 18px; }
+.box-IO25OUT-editable { top: 1127px; left: 800px; font-size: 18px; }
+.box-IO26OUT-editable { top: 1155px; left: 800px; font-size: 18px; }
+.box-IO27OUT-editable { top: 1183px; left: 800px; font-size: 18px; }
+.box-IO28OUT-editable { top: 1211px; left: 800px; font-size: 18px; }
+.box-IO29OUT-editable { top: 1239px; left: 800px; font-size: 18px; }
+.box-IO30OUT-editable { top: 1267px; left: 800px; font-size: 18px; }
+.box-IO31OUT-editable { top: 1295px; left: 800px; font-size: 18px; }
+.box-IO32OUT-editable { top: 1323px; left: 800px; font-size: 18px; }
+
+/* ================= CONV ================= */
+.box-IO9CONV-editable { top: 679px; left: 180px; font-size: 18px; }
+.box-IO10CONV-editable { top: 706px; left: 180px; font-size: 18px; }
+.box-IO11CONV-editable { top: 734px; left: 180px; font-size: 18px; }
+.box-IO12CONV-editable { top: 762px; left: 180px; font-size: 18px; }
+.box-IO13CONV-editable { top: 790px; left: 180px; font-size: 18px; }
+.box-IO14CONV-editable { top: 818px; left: 180px; font-size: 18px; }
+.box-IO15CONV-editable { top: 846px; left: 180px; font-size: 18px; }
+.box-IO16CONV-editable { top: 874px; left: 180px; font-size: 18px; }
+.box-IO17CONV-editable { top: 903px; left: 180px; font-size: 18px; }
+.box-IO18CONV-editable { top: 931px; left: 180px; font-size: 18px; }
+.box-IO19CONV-editable { top: 959px; left: 180px; font-size: 18px; }
+.box-IO20CONV-editable { top: 987px; left: 180px; font-size: 18px; }
+.box-IO21CONV-editable { top: 1015px; left: 180px; font-size: 18px; }
+.box-IO22CONV-editable { top: 1043px; left: 180px; font-size: 18px; }
+.box-IO23CONV-editable { top: 1071px; left: 180px; font-size: 18px; }
+.box-IO24CONV-editable { top: 1099px; left: 180px; font-size: 18px; }
+.box-IO25CONV-editable { top: 1127px; left: 180px; font-size: 18px; }
+.box-IO26CONV-editable { top: 1155px; left: 180px; font-size: 18px; }
+.box-IO27CONV-editable { top: 1183px; left: 180px; font-size: 18px; }
+.box-IO28CONV-editable { top: 1211px; left: 180px; font-size: 18px; }
+.box-IO29CONV-editable { top: 1239px; left: 180px; font-size: 18px; }
+.box-IO30CONV-editable { top: 1267px; left: 180px; font-size: 18px; }
+.box-IO31CONV-editable { top: 1295px; left: 180px; font-size: 18px; }
+.box-IO32CONV-editable { top: 1323px; left: 180px; font-size: 14px; }
+
+/* ================= CONVIN 9 à 32 ================= */
+.box-IO9CONVIN-editable { top: 679px; left: 285px; font-size: 18px; }
+.box-IO10CONVIN-editable { top: 706px; left: 285px; font-size: 18px; }
+.box-IO11CONVIN-editable { top: 734px; left: 285px; font-size: 18px; }
+.box-IO12CONVIN-editable { top: 762px; left: 285px; font-size: 18px; }
+.box-IO13CONVIN-editable { top: 790px; left: 285px; font-size: 18px; }
+.box-IO14CONVIN-editable { top: 818px; left: 285px; font-size: 18px; }
+.box-IO15CONVIN-editable { top: 846px; left: 285px; font-size: 18px; }
+.box-IO16CONVIN-editable { top: 874px; left: 285px; font-size: 18px; }
+.box-IO17CONVIN-editable { top: 903px; left: 285px; font-size: 18px; }
+.box-IO18CONVIN-editable { top: 931px; left: 285px; font-size: 18px; }
+.box-IO19CONVIN-editable { top: 959px; left: 285px; font-size: 18px; }
+.box-IO20CONVIN-editable { top: 987px; left: 285px; font-size: 18px; }
+.box-IO21CONVIN-editable { top: 1015px; left: 285px; font-size: 18px; }
+.box-IO22CONVIN-editable { top: 1043px; left: 285px; font-size: 18px; }
+.box-IO23CONVIN-editable { top: 1071px; left: 285px; font-size: 18px; }
+.box-IO24CONVIN-editable { top: 1099px; left: 285px; font-size: 18px; }
+.box-IO25CONVIN-editable { top: 1127px; left: 285px; font-size: 18px; }
+.box-IO26CONVIN-editable { top: 1155px; left: 285px; font-size: 18px; }
+.box-IO27CONVIN-editable { top: 1183px; left: 285px; font-size: 18px; }
+.box-IO28CONVIN-editable { top: 1211px; left: 285px; font-size: 18px; }
+.box-IO29CONVIN-editable { top: 1239px; left: 285px; font-size: 18px; }
+.box-IO30CONVIN-editable { top: 1267px; left: 285px; font-size: 18px; }
+.box-IO31CONVIN-editable { top: 1295px; left: 285px; font-size: 18px; }
+.box-IO32CONVIN-editable { top: 1323px; left: 285px; font-size: 18px; }
+
+/* ================= CONVOUT 9 à 32 ================= */
+.box-IO9CONVOUT-editable { top: 679px; left: 710px; font-size: 18px; }
+.box-IO10CONVOUT-editable { top: 706px; left: 710px; font-size: 18px; }
+.box-IO11CONVOUT-editable { top: 734px; left: 710px; font-size: 18px; }
+.box-IO12CONVOUT-editable { top: 762px; left: 710px; font-size: 18px; }
+.box-IO13CONVOUT-editable { top: 790px; left: 710px; font-size: 18px; }
+.box-IO14CONVOUT-editable { top: 818px; left: 710px; font-size: 18px; }
+.box-IO15CONVOUT-editable { top: 846px; left: 710px; font-size: 18px; }
+.box-IO16CONVOUT-editable { top: 874px; left: 710px; font-size: 18px; }
+.box-IO17CONVOUT-editable { top: 903px; left: 710px; font-size: 18px; }
+.box-IO18CONVOUT-editable { top: 931px; left: 710px; font-size: 18px; }
+.box-IO19CONVOUT-editable { top: 959px; left: 710px; font-size: 18px; }
+.box-IO20CONVOUT-editable { top: 987px; left: 710px; font-size: 18px; }
+.box-IO21CONVOUT-editable { top: 1015px; left: 710px; font-size: 18px; }
+.box-IO22CONVOUT-editable { top: 1043px; left: 710px; font-size: 18px; }
+.box-IO23CONVOUT-editable { top: 1071px; left: 710px; font-size: 18px; }
+.box-IO24CONVOUT-editable { top: 1099px; left: 710px; font-size: 18px; }
+.box-IO25CONVOUT-editable { top: 1127px; left: 710px; font-size: 18px; }
+.box-IO26CONVOUT-editable { top: 1155px; left: 710px; font-size: 18px; }
+.box-IO27CONVOUT-editable { top: 1183px; left: 710px; font-size: 18px; }
+.box-IO28CONVOUT-editable { top: 1211px; left: 710px; font-size: 18px; }
+.box-IO29CONVOUT-editable { top: 1239px; left: 710px; font-size: 18px; }
+.box-IO30CONVOUT-editable { top: 1267px; left: 710px; font-size: 18px; }
+.box-IO31CONVOUT-editable { top: 1295px; left: 710px; font-size: 18px; }
+.box-IO32CONVOUT-editable { top: 1323px; left: 710px; font-size: 18px; }
+
+/* ================= Couleurs par groupe ================= */
+/* CONV en blanc (comme GatewayDetails) */
+[class*="box-IO"][class*="CONV-editable"].textbox-editable { color: #ffffff; }
+/* CONVIN et CONVOUT en noir (comme GatewayDetails) */
+[class*="box-IO"][class*="CONVIN-editable"].textbox-editable,
+[class*="box-IO"][class*="CONVOUT-editable"].textbox-editable { color: #000000; }
+

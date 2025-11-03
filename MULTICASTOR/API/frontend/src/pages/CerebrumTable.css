@@ -1,0 +1,269 @@
+:root {
+  --color-primary: #7fa9c9;
+  --color-secondary: #ffffff;
+  --color-text: #d0d8e8;
+  --color-highlight: #ffffff;
+  --color-bg-dark: rgba(15, 30, 60, 0.85);
+  --color-bg-header: #1c3c66;
+  --color-bg-hover: #6186b6;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-ip-red: #ff6666;
+  --color-ip-blue: #66ccff;
+  --color-ip-green: #3da64a;
+  --color-row-alt: rgba(255, 255, 255, 0.1);
+
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  --blur-bg: blur(15px);
+  --font-family: 'Segoe UI', system-ui, sans-serif;
+  --padding-cell: 0px 4px;
+
+  --icon-size: 90px;
+  --search-bar-height: 40px;
+  --container-height: 790px;
+
+  --width-id: 75px;
+  --width-virtual: 75px;
+  --width-rm_mnemonic: 150px;
+  --width-alt1_mnemonic: 160px;
+  --width-alt2_mnemonic: 200px;
+  --width-alt3_mnemonic: 140px;
+  --width-alt4_mnemonic: 120px;
+  --width-id_video: 170px;
+  --width-id_audio: 170px;
+  --width-id_data: 170px;
+  --width-categorie: 140px;
+
+  --row-height: 28px; /* hauteur standard pour toutes les lignes */
+}
+
+/* --- Table --- */
+.inventory-table th,
+.inventory-table td {
+  text-align: center;
+  padding: var(--padding-cell);
+  border-bottom: 1px solid var(--color-border);
+  min-width: 60px;
+  height: var(--row-height);
+  line-height: var(--row-height);
+}
+
+.inventory-table td { 
+  color: var(--color-text); 
+  font-size: 12px; 
+  user-select: text;
+}
+
+.inventory-table td.col-id { width: var(--width-id); color: white; }
+.inventory-table td.col-virtual { width: var(--width-virtual); color: #ded41f; }
+.inventory-table td.col-rm_mnemonic { width: var(--width-rm_mnemonic); color: var(--color-ip-green); font-weight: 700; }
+.inventory-table td.col-alt1_mnemonic { width: var(--width-alt1_mnemonic); color: #13c995;}
+.inventory-table td.col-alt2_mnemonic { width: var(--width-alt2_mnemonic); color: #13c995;}
+.inventory-table td.col-alt3_mnemonic { width: var(--width-alt3_mnemonic); color: #13c995;}
+.inventory-table td.col-alt4_mnemonic { width: var(--width-alt4_mnemonic); color: #13c995;}
+.inventory-table td.col-id_video { width: var(--width-id_video); } 
+.inventory-table td.col-id_audio { width: var(--width-id_audio); }
+.inventory-table td.col-id_data { width: var(--width-id_data); }
+.inventory-table td.col-categorie_1 { width: var(--width-categorie); color: #1c55cf;}
+.inventory-table td.col-categorie_2 { width: var(--width-categorie); color: #1c55cf;}
+.inventory-table td.col-categorie_3 { width: var(--width-categorie); color: #1c55cf;}
+
+/* Alternating rows & hover */
+.inventory-table tbody tr:nth-child(even) { background-color: var(--color-row-alt); }
+.inventory-table tbody tr:hover { background-color: var(--color-bg-hover); }
+
+/* --- Lignes fantômes pour vides --- */
+.inventory-table tbody tr:empty::after {
+  content: "\00a0"; /* espace insécable pour forcer la hauteur */
+  display: block;
+  height: var(--row-height);
+}
+
+/* Sticky headers */
+.sticky-header { position: sticky; background-color: var(--color-bg-header); z-index: 11; }
+.header-row { top: 0; z-index: 12; }
+.filter-row { top: 33px; background-color: #12345a; z-index: 11; }
+
+/* --- Boutons Export CSV & LICENCES --- */
+.export-button-container { display: flex; justify-content: flex-start; margin-top: 2px; }
+.licences-button-container { display: flex; justify-content: center; margin-top: -36px; }
+
+.licences-button-container .licences-button {
+  width: 80px;
+  max-width: 10%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.archi-button {
+  width: 80px;
+  max-width: 10%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin-left: 20px; /* espace entre LICENCES et ARCHI */
+}
+
+
+#icon-nemo {
+  position: absolute;
+  top: 130px !important;
+  right: 300px !important;
+  width: 180px !important;
+  height: 140px;
+  z-index: -1 !important;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+#icon-nemo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+#icon-walli {
+  position: absolute;
+  top: -10px !important;
+  right: 575px !important;
+  width: 180px;
+  height: 180px;
+  z-index: -1 !important;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#icon-walli img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* Style commun pour les boutons */
+.button.btn-large {
+  background-color: var(--color-bg-header);
+  color: var(--color-secondary);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button.btn-large:hover {
+  background-color: var(--color-bg-hover);
+  transform: scale(1.05);
+}
+
+/* --- Overlay pop-up licences --- */
+.licences-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.licences-popup {
+  position: relative;
+  background: linear-gradient(to bottom, #353637, #37474F);
+  padding: 15px 0px;
+  border-radius: 12px;
+  text-align: center;
+  width: 65vw;      /* largeur relative à la fenêtre */
+  height: 90vh;     /* hauteur relative à la fenêtre */
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.licences-popup h2 {
+  margin-bottom: 20px;
+  color: #3abb42;
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+}
+
+/* Image centrée */
+.licences-popup img {
+  max-width: 100%;  /* occupe toute la largeur de la popup */
+  max-height: 80vh; /* occupe plus de hauteur de la fenêtre */
+  border-radius: 6px;
+}
+
+/* Croix de fermeture */
+.licences-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.licences-popup-close:hover {
+  color: var(--color-highlight);
+}
+
+/* Animations */
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes scaleIn { to { transform: scale(1); } }
+
+/* --- React Select --- */
+.react-select__control { min-height: 28px !important; font-size: 10px !important; border-radius: 3px !important; border-color: rgba(255,255,255,0.1) !important; background-color: transparent !important; box-shadow: none !important; color: white !important; font-family: var(--font-family); padding: 0 6px; }
+.react-select__control--is-focused { border-color: var(--color-primary); box-shadow: 0 0 10px var(--color-primary); }
+.react-select__multi-value { background-color: rgba(65,146,224,0.5) !important; border-radius: 3px !important; }
+.react-select__multi-value__label { color: white !important; font-weight: 600 !important; font-size: 10px !important; padding: 0 !important; }
+.react-select__multi-value__remove { color: white !important; padding-left: 4px; padding-right: 4px; }
+.react-select__multi-value__remove:hover { background-color: grey !important; color: white !important; }
+.react-select__placeholder { color: rgba(255,255,255,0.5) !important; font-style: italic; line-height: 1.2; }
+.react-select__menu { background-color: #222 !important; color: white !important; border-radius: 4px; box-shadow: 0 0 10px rgba(127, 169, 201, 0.8); font-size: 13px; }
+.react-select__option { padding: 6px 12px; background-color: #222 !important; color: white !important; cursor: pointer !important; }
+.react-select__option--is-focused { background-color: rgba(75,0,130,0.5) !important; }
+.react-select__option--is-selected { background-color: var(--color-secondary) !important; color: var(--color-bg-dark) !important; font-weight: 700; }
+
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+  .inventory-table thead { display: none !important; }
+  .inventory-table tbody td { 
+    display: block !important; 
+    width: 100% !important; 
+    text-align: left !important; 
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important; 
+    position: relative !important; 
+    padding-left: 50% !important; 
+    height: var(--row-height) !important;
+    line-height: var(--row-height) !important;
+  }
+  .inventory-table tbody td::before { 
+    content: attr(data-label); 
+    position: absolute; 
+    left: 10px; 
+    top: 0; 
+    font-weight: 600; 
+    color: #81abcf; 
+  }
+  .inventory-table { table-layout: auto !important; }
+
+  /* Lignes fantômes responsive */
+  .inventory-table tbody tr:empty::after {
+    content: "\00a0";
+    display: block;
+    height: var(--row-height);
+  }
+}

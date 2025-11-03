@@ -1,0 +1,141 @@
+.main.page-switch-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100vh;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  color: #ddd;
+  background-color: transparent;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1830px;
+  margin: 0 auto 0;
+  padding: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+/* Switch info */
+.switch-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.switch-info > div {
+  font-size: 1.1rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.switch-hostname {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.switch-model,
+.switch-type,
+.switch-debit-max,
+.switch-debit-util {
+  color: #b6c8d8;
+  font-weight: 500;
+}
+
+.switch-ports {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.port-row {
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  gap: 8px;
+  min-width: max-content; /* permet le scroll horizontal si nécessaire */
+}
+
+
+/* Each port cell */
+.port-cell {
+  background-color: #c2bcbc;
+  border: 1px solid #ccc;
+  padding: 6px 6px;
+  min-height: 120px; /* augmenté pour ports avec plusieurs hosts */
+  min-width: 140px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  word-break: break-word;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Port number */
+.port-number {
+  background-color: #e74c3c; /* par défaut */
+  color: black;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+/* Port info lines */
+.port-info {
+  font-size: 0.65rem;
+  line-height: 1.2;
+  margin: 2px 0;
+  white-space: normal;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .port-row {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 6px;
+    min-width: auto;
+  }
+
+  .port-cell {
+    min-width: 50px;
+    font-size: 0.7rem;
+    padding: 4px 3px;
+    min-height: 70px;
+  }
+
+  .port-number {
+    font-size: 0.7rem;
+  }
+
+  .switch-info {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .switch-info > div {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .switch-hostname {
+    font-size: 1.1rem;
+  }
+}

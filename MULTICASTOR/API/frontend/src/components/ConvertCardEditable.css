@@ -1,0 +1,132 @@
+/* Page container */
+.editable-page-convert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Card container */
+.convert-card-editable {
+  position: relative;
+  width: 1050px;
+  height: auto;
+}
+
+.convert-template-editable {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.convert-content-editable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.textbox-convert-editable {
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 22px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 0px solid #000;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(26, 23, 218);
+  width: 380px; height: 30px;
+}
+
+/* Neutraliser interactions par défaut */
+.textbox-convert-editable { pointer-events: none; }
+
+/* Cliquables seulement */
+.textbox-convert-editable.is-clickable {
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Gras uniquement pour les groupes demandés */
+[class^="box-IN"][class$="-convert-editable"].textbox-convert-editable,
+[class^="box-OUT"][class$="-convert-editable"].textbox-convert-editable,
+[class^="box-IO"][class*="IN"][class$="-convert-editable"].textbox-convert-editable,
+[class^="box-IO"][class*="OUT"][class$="-convert-editable"].textbox-convert-editable,
+[class^="box-IO"][class*="CONV"][class$="-convert-editable"].textbox-convert-editable {
+  font-weight: 700
+}
+
+/* ================= Couleurs par groupe (alignées avec ConvertDetails) ================= */
+/* CONV en blanc */
+[class*="box-IO"][class*="CONV-convert-editable"].textbox-convert-editable { color: #ffffff; }
+/* CONVIN et CONVOUT en noir */
+[class*="box-IO"][class*="CONVIN-convert-editable"].textbox-convert-editable,
+[class*="box-IO"][class*="CONVOUT-convert-editable"].textbox-convert-editable { color: #000000; }
+
+/* Example positions: customize to your Convert template */
+.box-HOSTNAME-convert-editable { top: 50px; left: 640px; font-size: 38px; color: #313131;  font-weight: 700; }
+.box-FONCTION-convert-editable { top: 15px; left: 340px; font-size: 24px; color: #000;  font-weight: 700; }
+.box-BAIE-convert-editable { top: 55px; left: 340px; font-size: 24px; color: #000;  font-weight: 700; }
+.box-FIRMWARE-convert-editable { top: 100px; left: 340px; font-size: 22px; color: #000;  font-weight: 700; }
+.box-CAPACITE-convert-editable { top: 170px; left: 340px; font-size: 22px; color: #000;  font-weight: 700; }
+.box-UTILISE-convert-editable { top: 210px; left: 340px; font-size: 22px; color: #000;  font-weight: 700; }
+.box-DISPO-convert-editable { top: 255px; left: 340px; font-size: 22px; color: #000;  font-weight: 700; }
+
+/* IN1..IN24 placeholder; adjust to your actual image grid */
+.box-IN1-convert-editable { top: 343px; left: 200px; }
+.box-IN2-convert-editable { top: 384px; left: 200px; }
+.box-IN3-convert-editable { top: 425px; left: 200px; }
+.box-IN4-convert-editable { top: 467px; left: 200px; }
+.box-IN5-convert-editable { top: 508px; left: 200px; }
+.box-IN6-convert-editable { top: 549px; left: 200px; }
+.box-IN7-convert-editable { top: 591px; left: 200px; }
+.box-IN8-convert-editable { top: 632px; left: 200px; }
+.box-IN9-convert-editable { top: 673px; left: 200px; }
+.box-IN10-convert-editable { top: 715px; left: 200px; }
+.box-IN11-convert-editable { top: 756px; left: 200px; }
+.box-IN12-convert-editable { top: 797px; left: 200px; }
+.box-IN13-convert-editable { top: 839px; left: 200px; }
+.box-IN14-convert-editable { top: 880px; left: 200px; }
+.box-IN15-convert-editable { top: 921px; left: 200px; }
+.box-IN16-convert-editable { top: 963px; left: 200px; }
+.box-IN17-convert-editable { top: 1004px; left: 200px; }
+.box-IN18-convert-editable { top: 1045px; left: 200px; }
+.box-IN19-convert-editable { top: 1086px; left: 200px; }
+.box-IN20-convert-editable { top: 1127px; left: 200px; }
+.box-IN21-convert-editable { top: 1169px; left: 200px; }
+.box-IN22-convert-editable { top: 1210px; left: 200px; }
+.box-IN23-convert-editable { top: 1252px; left: 200px; }
+.box-IN24-convert-editable { top: 1294px; left: 200px; }
+
+.box-OUT1-convert-editable { top: 343px; left: 640px; }
+.box-OUT2-convert-editable { top: 384px; left: 640px; }
+.box-OUT3-convert-editable { top: 425px; left: 640px; }
+.box-OUT4-convert-editable { top: 467px; left: 640px; }
+.box-OUT5-convert-editable { top: 508px; left: 640px; }
+.box-OUT6-convert-editable { top: 549px; left: 640px; }
+.box-OUT7-convert-editable { top: 591px; left: 640px; }
+.box-OUT8-convert-editable { top: 632px; left: 640px; }
+.box-OUT9-convert-editable { top: 673px; left: 640px; }
+.box-OUT10-convert-editable { top: 715px; left: 640px; }
+.box-OUT11-convert-editable { top: 756px; left: 640px; }
+.box-OUT12-convert-editable { top: 797px; left: 640px; }
+.box-OUT13-convert-editable { top: 839px; left: 640px; }
+.box-OUT14-convert-editable { top: 880px; left: 640px; }
+.box-OUT15-convert-editable { top: 921px; left: 640px; }
+.box-OUT16-convert-editable { top: 963px; left: 640px; }
+.box-OUT17-convert-editable { top: 1004px; left: 640px; }
+.box-OUT18-convert-editable { top: 1045px; left: 640px; }
+.box-OUT19-convert-editable { top: 1086px; left: 640px; }
+.box-OUT20-convert-editable { top: 1127px; left: 640px; }
+.box-OUT21-convert-editable { top: 1169px; left: 640px; }
+.box-OUT22-convert-editable { top: 1210px; left: 640px; }
+.box-OUT23-convert-editable { top: 1252px; left: 640px; }
+.box-OUT24-convert-editable { top: 1294px; left: 640px; }
+

@@ -1,0 +1,208 @@
+.gateway-page {
+  position: relative;
+  padding: 430px; /* ou ce que tu veux */
+}
+
+/* Conteneur de chaque carte */
+.gateway-card {
+  position: absolute;
+  top: 0px;
+  left: 600px;
+  width: 600px;
+  height: auto;
+  transform: scale(0.42);
+  transform-origin: top left;
+}
+
+/* Image de fond */
+.gateway-template {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Conteneur pour textbox */
+.gateway-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* Textbox génériques */
+.textbox {
+  position: absolute;
+  font-weight: 600;
+  color: rgb(26, 23, 218);
+  font-size: 14px; /* modifiable par textbox si besoin */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* responsive rules removed to restore original positions */
+
+/* Position spécifique pour chaque textbox */
+.box-HOSTNAME { top: 80px; left: 990px; font-size: 56px; color: rgb(49, 49, 49);  font-weight: 700;}
+.box-FONCTION { top: 27px; left: 400px; font-size: 30px; color: rgb(0, 0, 0); }
+.box-BAIE { top: 77px; left: 400px; font-size: 30px; color: rgb(0, 0, 0); }
+.box-FIRMWARE { top: 127px; left: 400px; font-size: 30px; color: rgb(0, 0, 0); }
+.box-DISPO { top: 177px; left: 400px; font-size: 30px; color: rgb(0, 0, 0); }
+
+/* IN1 à IN8 */
+.box-IN1 { top: 318px; left: 550px; font-size: 26px; }
+.box-IN2 { top: 358px; left: 550px; font-size: 26px; }
+.box-IN3 { top: 398px; left: 550px; font-size: 26px; }
+.box-IN4 { top: 438px; left: 550px; font-size: 26px; }
+.box-IN5 { top: 478px; left: 550px; font-size: 26px; }
+.box-IN6 { top: 518px; left: 550px; font-size: 26px; }
+.box-IN7 { top: 558px; left: 550px; font-size: 26px; }
+.box-IN8 { top: 598px; left: 550px; font-size: 26px; }
+
+/* OUT1 à OUT8 */
+.box-OUT1 { top: 638px; left: 1150px; font-size: 26px; }
+.box-OUT2 { top: 678px; left: 1150px; font-size: 26px; }
+.box-OUT3 { top: 718px; left: 1150px; font-size: 26px; }
+.box-OUT4 { top: 758px; left: 1150px; font-size: 26px; }
+.box-OUT5 { top: 798px; left: 1150px; font-size: 26px; }
+.box-OUT6 { top: 838px; left: 1150px; font-size: 26px; }
+.box-OUT7 { top: 878px; left: 1150px; font-size: 26px; }
+.box-OUT8 { top: 918px; left: 1150px; font-size: 26px; }
+
+/* IOIN9 à IOIN32 */
+.box-IO9IN { top: 958px; left: 550px; font-size: 26px; }
+.box-IO10IN { top: 998px; left: 550px; font-size: 26px; }
+.box-IO11IN { top: 1038px; left: 550px; font-size: 26px; }
+.box-IO12IN { top: 1078px; left: 550px; font-size: 26px; }
+.box-IO13IN { top: 1118px; left: 550px; font-size: 26px; }
+.box-IO14IN { top: 1158px; left: 550px; font-size: 26px; }
+.box-IO15IN { top: 1198px; left: 550px; font-size: 26px; }
+.box-IO16IN { top: 1236px; left: 550px; font-size: 26px; }
+.box-IO17IN { top: 1275px; left: 550px; font-size: 26px; }
+.box-IO18IN { top: 1315px; left: 550px; font-size: 26px; }
+.box-IO19IN { top: 1355px; left: 550px; font-size: 26px; }
+.box-IO20IN { top: 1395px; left: 550px; font-size: 26px; }
+.box-IO21IN { top: 1432px; left: 550px; font-size: 26px; }
+.box-IO22IN { top: 1470px; left: 550px; font-size: 26px; }
+.box-IO23IN { top: 1512px; left: 550px; font-size: 26px; }
+.box-IO24IN { top: 1552px; left: 550px; font-size: 26px; }
+.box-IO25IN { top: 1590px; left: 550px; font-size: 26px; }
+.box-IO26IN { top: 1628px; left: 550px; font-size: 26px; }
+.box-IO27IN { top: 1668px; left: 550px; font-size: 26px; }
+.box-IO28IN { top: 1708px; left: 550px; font-size: 26px; }
+.box-IO29IN { top: 1748px; left: 550px; font-size: 26px; }
+.box-IO30IN { top: 1788px; left: 550px; font-size: 26px; }
+.box-IO31IN { top: 1828px; left: 550px; font-size: 26px; }
+.box-IO32IN { top: 1868px; left: 550px; font-size: 26px; }
+
+/* IOOUT9 à IOOUT32 */
+.box-IO9OUT { top: 958px; left: 1150px; font-size: 26px; }
+.box-IO10OUT { top: 998px; left: 1150px; font-size: 26px; }
+.box-IO11OUT { top: 1038px; left: 1150px; font-size: 26px; }
+.box-IO12OUT { top: 1078px; left: 1150px; font-size: 26px; }
+.box-IO13OUT { top: 1118px; left: 1150px; font-size: 26px; }
+.box-IO14OUT { top: 1158px; left: 1150px; font-size: 26px; }
+.box-IO15OUT { top: 1198px; left: 1150px; font-size: 26px; }
+.box-IO16OUT { top: 1236px; left: 1150px; font-size: 26px; }
+.box-IO17OUT { top: 1275px; left: 1150px; font-size: 26px; }
+.box-IO18OUT { top: 1315px; left: 1150px; font-size: 26px; }
+.box-IO19OUT { top: 1355px; left: 1150px; font-size: 26px; }
+.box-IO20OUT { top: 1395px; left: 1150px; font-size: 26px; }
+.box-IO21OUT { top: 1432px; left: 1150px; font-size: 26px; }
+.box-IO22OUT { top: 1470px; left: 1150px; font-size: 26px; }
+.box-IO23OUT { top: 1512px; left: 1150px; font-size: 26px; }
+.box-IO24OUT { top: 1552px; left: 1150px; font-size: 26px; }
+.box-IO25OUT { top: 1590px; left: 1150px; font-size: 26px; }
+.box-IO26OUT { top: 1628px; left: 1150px; font-size: 26px; }
+.box-IO27OUT { top: 1668px; left: 1150px; font-size: 26px; }
+.box-IO28OUT { top: 1708px; left: 1150px; font-size: 26px; }
+.box-IO29OUT { top: 1748px; left: 1150px; font-size: 26px; }
+.box-IO30OUT { top: 1788px; left: 1150px; font-size: 26px; }
+.box-IO31OUT { top: 1828px; left: 1150px; font-size: 26px; }
+.box-IO32OUT { top: 1868px; left: 1150px; font-size: 26px; }
+
+/* IO9CONV à IO32CONV */
+.box-IO9CONV { top: 958px; left: 255px; font-size: 26px; }
+.box-IO10CONV { top: 998px; left: 255px; font-size: 26px; }
+.box-IO11CONV { top: 1038px; left: 255px; font-size: 26px; }
+.box-IO12CONV { top: 1078px; left: 255px; font-size: 26px; }
+.box-IO13CONV { top: 1118px; left: 255px; font-size: 26px; }
+.box-IO14CONV { top: 1158px; left: 255px; font-size: 26px; }
+.box-IO15CONV { top: 1198px; left: 255px; font-size: 26px; }
+.box-IO16CONV { top: 1236px; left: 255px; font-size: 26px; }
+.box-IO17CONV { top: 1275px; left: 255px; font-size: 26px; }
+.box-IO18CONV { top: 1315px; left: 255px; font-size: 26px; }
+.box-IO19CONV { top: 1355px; left: 255px; font-size: 26px; }
+.box-IO20CONV { top: 1395px; left: 255px; font-size: 26px; }
+.box-IO21CONV { top: 1432px; left: 255px; font-size: 26px; }
+.box-IO22CONV { top: 1470px; left: 255px; font-size: 26px; }
+.box-IO23CONV { top: 1512px; left: 255px; font-size: 26px; }
+.box-IO24CONV { top: 1552px; left: 255px; font-size: 26px; }
+.box-IO25CONV { top: 1590px; left: 255px; font-size: 26px; }
+.box-IO26CONV { top: 1628px; left: 255px; font-size: 26px; }
+.box-IO27CONV { top: 1668px; left: 255px; font-size: 26px; }
+.box-IO28CONV { top: 1708px; left: 255px; font-size: 26px; }
+.box-IO29CONV { top: 1748px; left: 255px; font-size: 26px; }
+.box-IO30CONV { top: 1788px; left: 255px; font-size: 26px; }
+.box-IO31CONV { top: 1828px; left: 255px; font-size: 26px; }
+.box-IO32CONV { top: 1868px; left: 255px; font-size: 26px; }
+
+/* IO9CONVIN à IO32CONVIN */
+.box-IO9CONVIN { top: 958px; left: 410px; font-size: 26px; }
+.box-IO10CONVIN { top: 998px; left: 410px; font-size: 26px; }
+.box-IO11CONVIN { top: 1038px; left: 410px; font-size: 26px; }
+.box-IO12CONVIN { top: 1078px; left: 410px; font-size: 26px; }
+.box-IO13CONVIN { top: 1118px; left: 410px; font-size: 26px; }
+.box-IO14CONVIN { top: 1158px; left: 410px; font-size: 26px; }
+.box-IO15CONVIN { top: 1198px; left: 410px; font-size: 26px; }
+.box-IO16CONVIN { top: 1236px; left: 410px; font-size: 26px; }
+.box-IO17CONVIN { top: 1275px; left: 410px; font-size: 26px; }
+.box-IO18CONVIN { top: 1315px; left: 410px; font-size: 26px; }
+.box-IO19CONVIN { top: 1355px; left: 410px; font-size: 26px; }
+.box-IO20CONVIN { top: 1395px; left: 410px; font-size: 26px; }
+.box-IO21CONVIN { top: 1432px; left: 410px; font-size: 26px; }
+.box-IO22CONVIN { top: 1470px; left: 410px; font-size: 26px; }
+.box-IO23CONVIN { top: 1512px; left: 410px; font-size: 26px; }
+.box-IO24CONVIN { top: 1552px; left: 410px; font-size: 26px; }
+.box-IO25CONVIN { top: 1590px; left: 410px; font-size: 26px; }
+.box-IO26CONVIN { top: 1628px; left: 410px; font-size: 26px; }
+.box-IO27CONVIN { top: 1668px; left: 410px; font-size: 26px; }
+.box-IO28CONVIN { top: 1708px; left: 410px; font-size: 26px; }
+.box-IO29CONVIN { top: 1748px; left: 410px; font-size: 26px; }
+.box-IO30CONVIN { top: 1788px; left: 410px; font-size: 26px; }
+.box-IO31CONVIN { top: 1828px; left: 410px; font-size: 26px; }
+.box-IO32CONVIN { top: 1868px; left: 410px; font-size: 26px; }
+
+/* IO9CONVOUT à IO32CONVOUT */
+.box-IO9CONVOUT { top: 958px; left: 1010px; font-size: 26px; }
+.box-IO10CONVOUT { top: 998px; left: 1010px; font-size: 26px; }
+.box-IO11CONVOUT { top: 1038px; left: 1010px; font-size: 26px; }
+.box-IO12CONVOUT { top: 1078px; left: 1010px; font-size: 26px; }
+.box-IO13CONVOUT { top: 1118px; left: 1010px; font-size: 26px; }
+.box-IO14CONVOUT { top: 1158px; left: 1010px; font-size: 26px; }
+.box-IO15CONVOUT { top: 1198px; left: 1010px; font-size: 26px; }
+.box-IO16CONVOUT { top: 1236px; left: 1010px; font-size: 26px; }
+.box-IO17CONVOUT { top: 1275px; left: 1010px; font-size: 26px; }
+.box-IO18CONVOUT { top: 1315px; left: 1010px; font-size: 26px; }
+.box-IO19CONVOUT { top: 1355px; left: 1010px; font-size: 26px; }
+.box-IO20CONVOUT { top: 1395px; left: 1010px; font-size: 26px; }
+.box-IO21CONVOUT { top: 1432px; left: 1010px; font-size: 26px; }
+.box-IO22CONVOUT { top: 1470px; left: 1010px; font-size: 26px; }
+.box-IO23CONVOUT { top: 1512px; left: 1010px; font-size: 26px; }
+.box-IO24CONVOUT { top: 1552px; left: 1010px; font-size: 26px; }
+.box-IO25CONVOUT { top: 1590px; left: 1010px; font-size: 26px; }
+.box-IO26CONVOUT { top: 1628px; left: 1010px; font-size: 26px; }
+.box-IO27CONVOUT { top: 1668px; left: 1010px; font-size: 26px; }
+.box-IO28CONVOUT { top: 1708px; left: 1010px; font-size: 26px; }
+.box-IO29CONVOUT { top: 1748px; left: 1010px; font-size: 26px; }
+.box-IO30CONVOUT { top: 1788px; left: 1010px; font-size: 26px; }
+.box-IO31CONVOUT { top: 1828px; left: 1010px; font-size: 26px; }
+.box-IO32CONVOUT { top: 1868px; left: 1010px; font-size: 26px; }
+
+/* ================= Couleurs par groupe ================= */
+/* CONV en blanc */
+[class*="box-IO"][class*="CONV"].textbox { color: #ffffff; }
+/* CONVIN et CONVOUT en noir */
+[class*="box-IO"][class*="CONVIN"].textbox,
+[class*="box-IO"][class*="CONVOUT"].textbox { color: #000000; }

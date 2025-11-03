@@ -1,0 +1,107 @@
+/* ===== Container principal ===== */
+.page-gateway-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 1900px;
+  margin: 0 auto;
+  padding-top: 390px !important;
+  position: relative;
+  box-sizing: border-box;
+  background-color: transparent;
+  gap: 20px;
+}
+
+/* Titre */
+.title-gateway-selection {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #46a5df;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  max-width: 1900px;
+}
+
+/* Groupe de boutons */
+.gateway-button-group {
+  position: absolute;
+  top: 510px;
+  left: -350px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.gateway-button-group .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 60px;
+  max-height: 60px;
+  text-align: center;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.gateway-button-group .button:hover {
+  background-color: #187bcd;
+}
+
+/* Container select */
+.gateway-search-select-container {
+  width: 100%;
+  max-width: 1900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Select stylé */
+.gateway-search-select {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #666666;
+  background-color: black;
+  color: #a3c3e8;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  appearance: none;
+}
+.gateway-search-select:hover,
+.gateway-search-select:focus {
+  border-color: #187bcd;
+  outline: none;
+}
+
+/* Conteneur fixe/scalable */
+.gateway-details-fixed-container {
+  position: fixed;
+  top: 310px;
+  left: 650px;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: auto;
+  z-index: 100;
+}
+
+/* Texte loading / erreur */
+.gateway-search-select-container > p {
+  color: #a3c3e8;
+  font-size: 16px;
+  margin: 0;
+}
+
+

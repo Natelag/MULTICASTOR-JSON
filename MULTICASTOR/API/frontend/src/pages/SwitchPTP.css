@@ -1,0 +1,34 @@
+.image-page {
+  padding: 20px;
+  font-family: sans-serif;
+  position: relative;
+  height: 100vh;
+}
+
+/* Conteneur responsive centré horizontalement, décalé verticalement */
+.image-container {
+  position: absolute;
+  top: 350px; /* espace sous le titre */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;  /* 90% de la largeur de l'écran */
+  height: 80vh; /* 80% de la hauteur de l'écran */
+  resize: both;
+  overflow: hidden;
+  border: 0px dashed #888;
+  padding: 4px;
+  max-width: 1300px;
+  max-height: 1200px;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+/* Image adaptée à la taille du conteneur */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
