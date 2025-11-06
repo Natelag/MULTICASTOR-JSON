@@ -63,8 +63,10 @@ def split_ip_port(val):
 
 @inventory_bp.route("/inventory-merged", methods=["GET"])
 def inventory_merged():
+    print(f"🔵 [INVENTORY] Requête reçue pour /inventory-merged")
     try:
         dir_path = utils.HTML_EXPORT_PATH
+        print(f"📁 [INVENTORY] Chemin export: {dir_path}")
 
         # fichiers Database
         file_ref = os.path.join(dir_path, "Database_Multicast_2110_Export.json")
@@ -79,9 +81,22 @@ def inventory_merged():
         ]
 
         # Vérification fichiers Database
+        missing_files = []
         for f in [file_ref, file_multi] + rm_files:
             if not os.path.isfile(f):
-                return jsonify({"error": f"Fichier introuvable : {f}"}), 404
+                print(f"❌ [INVENTORY] Fichier introuvable : {f}")
+                missing_files.append(f)
+        
+        if missing_files:
+            print(f"\n❌ [INVENTORY] {len(missing_files)} fichier(s) manquant(s) sur {len([file_ref, file_multi] + rm_files)}")
+            return jsonify({
+                "error": "Fichiers manquants",
+                "missing_files": [os.path.basename(f) for f in missing_files],
+                "total_required": len([file_ref, file_multi] + rm_files),
+                "found": len([file_ref, file_multi] + rm_files) - len(missing_files)
+            }), 404
+        
+        print(f"✅ [INVENTORY] Tous les fichiers trouvés ({len([file_ref, file_multi] + rm_files)} fichiers)")
 
         # Lecture JSON et normalisation
         df_ref = normalize_columns(
@@ -236,9 +251,11 @@ def inventory_merged():
         ]
 
         print("✅ Colonnes finales dans merged :", merged.columns.tolist())
+        print(f"✅ [INVENTORY] Retour de {len(merged)} enregistrements")
         return jsonify(merged.to_dict(orient="records"))
 
     except Exception as e:
         import traceback
+        print(f"❌ [INVENTORY] Erreur : {str(e)}")
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500

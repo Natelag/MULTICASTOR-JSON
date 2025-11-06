@@ -37,19 +37,18 @@ def serve_assets(filename):
     return send_from_directory(os.path.join(FRONTEND_DIST, "assets"), filename)
 
 # --- Catch-all pour React SPA (doit être en dernier) ---
+# Cette route sert index.html pour toutes les routes qui ne sont pas des routes API
+# Flask gère automatiquement les routes API enregistrées via les blueprints
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_react(path):
-    # Ignorer les routes API ou export
-    if path.startswith(("api", "export", "health", "inventory-merged", "cerebrum", "html")):
-        return "Not Found", 404
-
-    # Servir un fichier statique si existant
+    # Vérifier si c'est un fichier statique (images, favicon, etc.)
     requested_file = os.path.join(FRONTEND_DIST, path)
     if os.path.isfile(requested_file):
         return send_from_directory(FRONTEND_DIST, path)
-
-    # Sinon fallback sur index.html pour React Router
+    
+    # Sinon, servir index.html pour React Router
+    # React Router gérera le routing côté client
     return send_from_directory(FRONTEND_DIST, "index.html")
 
 # --- DEBUG: affichage routes et statuts ---

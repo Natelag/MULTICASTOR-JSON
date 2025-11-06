@@ -8,7 +8,6 @@ export default function SwitchList({ htmlFileName, title }) {
 
   useEffect(() => {
     if (!htmlFileName) {
-      console.warn("⚠️ htmlFileName manquant pour SwitchList");
       setSwitchNames([]);
       return;
     }

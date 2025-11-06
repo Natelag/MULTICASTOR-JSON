@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import "./SwitchDetails.css";
 
 export default function SwitchDetails({ switchName, htmlUrl }) {
+  
   const [ports, setPorts] = useState([]);
   const [switchInfo, setSwitchInfo] = useState({
     hostname: "",
     model: "",
     type: "",
-    debitMax: "",
-    debitUtil: "",
+    downlink: "",
+    uplink: "",
   });
 
   const getBackgroundGradientByType = (type) => {
-    switch ((type || "").toUpperCase()) {
+    const typeUpper = (type || "").trim().toUpperCase();
+    switch (typeUpper) {
       case "ROUGE":
         return "linear-gradient(135deg, #5f0909ff, #910707ff)";
       case "BLEU":
@@ -29,7 +31,7 @@ export default function SwitchDetails({ switchName, htmlUrl }) {
 
   useEffect(() => {
     if (!switchName || !htmlUrl) {
-      setSwitchInfo({ hostname: "", model: "", type: "", debitMax: "", debitUtil: "" });
+      setSwitchInfo({ hostname: "", model: "", type: "", downlink: "", uplink: "" });
       setPorts([]);
       return;
     }
@@ -56,19 +58,80 @@ export default function SwitchDetails({ switchName, htmlUrl }) {
           if (hostnameCell) {
             const getCellText = (col) => {
               const cell = cellsInRow.find((td) => td.getAttribute("data-col") === col);
-              return cell ? cell.innerText.trim() : "";
+              if (!cell) {
+                return "";
+              }
+              
+              // Pour la colonne type (11), essayer data-hostname en priorité
+              if (col === "11") {
+                // Essayer dans cet ordre : data-hostname, innerText, textContent
+                const hostnameAttr = cell.getAttribute("data-hostname");
+                if (hostnameAttr && hostnameAttr.trim()) {
+                  return hostnameAttr.trim();
+                }
+                const innerText = cell.innerText.trim();
+                if (innerText) {
+                  return innerText;
+                }
+                const textContent = cell.textContent.trim();
+                if (textContent) {
+                  return textContent;
+                }
+                return "";
+              }
+              
+              // Pour les autres colonnes, utiliser innerText
+              return cell.innerText.trim();
             };
+            
+            // Chercher automatiquement ROUGE/BLEU/PTP dans toutes les colonnes (1-20)
+            let foundColorType = null;
+            
+            for (let col = 1; col <= 20; col++) {
+              const cell = cellsInRow.find((td) => td.getAttribute("data-col") === col.toString());
+              if (cell) {
+                const innerText = cell.innerText.trim().toUpperCase();
+                const dataHostname = (cell.getAttribute("data-hostname") || "").trim().toUpperCase();
+                
+                // Chercher ROUGE, BLEU, ROUGEBLEU, PTP dans cette colonne
+                if (!foundColorType) {
+                  if (innerText.includes("ROUGE") && innerText.includes("BLEU")) {
+                    foundColorType = "ROUGEBLEU";
+                  } else if (innerText.includes("ROUGE")) {
+                    foundColorType = "ROUGE";
+                  } else if (innerText.includes("BLEU")) {
+                    foundColorType = "BLEU";
+                  } else if (innerText.includes("PTP")) {
+                    foundColorType = "PTP";
+                  } else if (dataHostname.includes("ROUGE") && dataHostname.includes("BLEU")) {
+                    foundColorType = "ROUGEBLEU";
+                  } else if (dataHostname.includes("ROUGE")) {
+                    foundColorType = "ROUGE";
+                  } else if (dataHostname.includes("BLEU")) {
+                    foundColorType = "BLEU";
+                  } else if (dataHostname.includes("PTP")) {
+                    foundColorType = "PTP";
+                  }
+                }
+              }
+            }
+            
+            // Utiliser le type couleur trouvé automatiquement, sinon utiliser colonne 11
+            const finalType = foundColorType || getCellText("11");
+            
             foundSwitchInfo = {
               hostname: switchName,
               model: getCellText("6"),
-              type: getCellText("10"),
-              debitMax: getCellText("13"),
-              debitUtil: getCellText("16"),
+              type: finalType,
+              downlink: getCellText("14"),
+              uplink: getCellText("17"),
             };
           }
         });
 
-        if (foundSwitchInfo) setSwitchInfo(foundSwitchInfo);
+        if (foundSwitchInfo) {
+          setSwitchInfo(foundSwitchInfo);
+        }
 
         // --- Extraction ports ---
         const hostnameRowEntry = Array.from(rowsMap.entries()).find(
@@ -132,7 +195,7 @@ export default function SwitchDetails({ switchName, htmlUrl }) {
       })
       .catch((err) => {
         console.error("Erreur lors du chargement du HTML:", err);
-        setSwitchInfo({ hostname: "", model: "", type: "", debitMax: "", debitUtil: "" });
+        setSwitchInfo({ hostname: "", model: "", type: "", downlink: "", uplink: "" });
         setPorts([]);
       });
   }, [switchName, htmlUrl]);
@@ -181,18 +244,20 @@ export default function SwitchDetails({ switchName, htmlUrl }) {
       </div>
     ));
 
+  const backgroundGradient = getBackgroundGradientByType(switchInfo.type);
+
   return (
     <div className="switch-block">
       <div
         className="content-wrapper"
-        style={{ background: getBackgroundGradientByType(switchInfo.type), padding: "20px", borderRadius: "18px", marginBottom: "30px" }}
+        style={{ background: backgroundGradient, padding: "20px", borderRadius: "18px", marginBottom: "30px" }}
       >
         <div className="switch-info">
           <div className="switch-hostname">Hostname: <strong>{switchInfo.hostname || switchName}</strong></div>
           <div className="switch-model">Model: <strong>{switchInfo.model || "N/A"}</strong></div>
           <div className="switch-type">Type: <strong>{switchInfo.type || "N/A"}</strong></div>
-          <div className="switch-debit-max">Debit Max: <strong>{switchInfo.debitMax || "N/A"}</strong></div>
-          <div className="switch-debit-util">Debit Util: <strong>{switchInfo.debitUtil || "N/A"}</strong></div>
+          <div className="switch-downlink">Downlink: <strong>{switchInfo.downlink || "N/A"}</strong></div>
+          <div className="switch-uplink">Uplink: <strong>{switchInfo.uplink || "N/A"}</strong></div>
         </div>
 
         <div className="switch-ports" style={{ overflowX: "auto" }}>
